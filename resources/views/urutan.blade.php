@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('title', 'Laravel Dans Urutan')
+@section('title', 'Laravel Naomi Urutan')
 @section('content')
 
 @foreach ($numbers as $number)
