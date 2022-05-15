@@ -24,7 +24,7 @@
   </div>
 </nav>
 
-<a href="/friends/create" class="card-link btn-primary">Tambah Teman</a>
+<a href="/friends/create" class="btn btn-sm btn-warning">Tambah Teman</a>
 
   @yield('content') 
 

@@ -10,6 +10,7 @@ class CobaController extends Controller
     public function index ()
     {
         $friends = Friends::orderBy('id','desc')->paginate(3);
+
         return view ('friends.index', compact('friends'));
     }
 
@@ -23,7 +24,7 @@ class CobaController extends Controller
         $request->validate([
             'nama' => 'required|unique:friends|max:255',
             'no_telp' => 'required|numeric',
-            'alamat' => 'nullable|date',
+            'alamat' => 'required',
         ]);
  
         $friends = new Friends;
@@ -39,17 +40,17 @@ class CobaController extends Controller
     }
     public function show ($id)
     {
-        $friends = Friends::where('id', $id)-> first();
-        return view ('friends.show', ['friend'=>$friends]);
+        $friend= Friends::where('id', $id)-> first();
+        return view('friends.show', ['friend' => $friend]);
         
     }
     public function edit ($id)
     {
-        $friends = Friends::where('id', $id)-> first();
-        return view ('friends.edit', ['friend'=>$friends]);
+        $friend = Friends::where('id', $id)-> first();
+        return view ('friends.edit', ['friend'=>$friend]);
         
     }
-    public function updates(Request $request, $id)
+    public function update(Request $request, $id)
     {
 
         $request->validate([
@@ -61,10 +62,10 @@ class CobaController extends Controller
         Friends::find($id)->update([
             'nama' => $request->nama,
             'no_telp'=>$request->no_telp,
-            'alamat' => $request->alamat,
+            'alamat' => $request->alamat
         ]);
 
-        return redirect('/');
+        return view('/');
     }
     public function destroy($id)
     {
