@@ -19,12 +19,12 @@
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="/">Home</a>
         <a class="nav-link" href="/friends">Friends</a>
+        <a class="nav-link" href="/groups">Groups</a>
       </div>
     </div>
   </div>
 </nav>
 
-<a href="/friends/create" class="btn btn-sm btn-warning">Tambah Teman</a>
 
   @yield('content') 
 
